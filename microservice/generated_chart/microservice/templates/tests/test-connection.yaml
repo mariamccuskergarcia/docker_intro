@@ -1,0 +1,84 @@
+---
+# Source: microservice/templates/tests/test-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "microservice-test-connection"
+  labels:
+    helm.sh/chart: microservice-0.1.0
+    app.kubernetes.io/name: microservice
+    app.kubernetes.io/instance: microservice
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['microservice:80']
+  restartPolicy: Never
+---
+# Source: microservice/templates/tests/test-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "microservice-test-connection"
+  labels:
+    helm.sh/chart: microservice-0.1.0
+    app.kubernetes.io/name: microservice
+    app.kubernetes.io/instance: microservice
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['microservice:80']
+  restartPolicy: Never
+---
+# Source: microservice/templates/tests/test-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "microservice-test-connection"
+  labels:
+    helm.sh/chart: microservice-0.1.0
+    app.kubernetes.io/name: microservice
+    app.kubernetes.io/instance: microservice
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['microservice:80']
+  restartPolicy: Never
+---
+# Source: microservice/templates/tests/test-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "microservice-test-connection"
+  labels:
+    helm.sh/chart: microservice-0.1.0
+    app.kubernetes.io/name: microservice
+    app.kubernetes.io/instance: microservice
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['microservice:80']
+  restartPolicy: Never

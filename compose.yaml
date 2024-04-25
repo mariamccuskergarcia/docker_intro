@@ -1,0 +1,18 @@
+
+services:
+  company_service:
+    build:
+      context: .
+      dockerfile: dockerfile_company_ms.dockerfile
+    container_name: ka-training-fastapi-company-ms
+    ports:
+      - 8001:8000
+    env_file: .env
+  department_service:
+    build:
+      context: .
+      dockerfile: dockerfile_department_ms.dockerfile
+    container_name: ka-training-fastapi-department-ms
+    ports:
+      - 8002:8000
+    env_file: .env

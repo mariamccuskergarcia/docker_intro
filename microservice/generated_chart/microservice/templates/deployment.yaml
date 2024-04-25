@@ -1,0 +1,55 @@
+---
+# Source: microservice/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservice
+  labels:
+    helm.sh/chart: microservice-0.1.0
+    app.kubernetes.io/name: microservice
+    app.kubernetes.io/instance: microservice
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: microservice
+      app.kubernetes.io/instance: microservice
+  template:
+    metadata:
+      labels:
+        helm.sh/chart: microservice-0.1.0
+        app.kubernetes.io/name: microservice
+        app.kubernetes.io/instance: microservice
+        app.kubernetes.io/version: "1.16.0"
+        app.kubernetes.io/managed-by: Helm
+    spec:
+      serviceAccountName: default
+      securityContext:
+        {}
+      containers:
+        - name: microservice
+          securityContext:
+            {}
+          image: "411447780843.dkr.ecr.eu-west-2.amazonaws.com/company-service-mmg:1.0.0."
+          imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+            {}
+          env:
+          - name: COSMOSDB_ENDPOINT_URL
+            value: https://ce05cosmodb1.documents.azure.com:443/
+          - name: COSMOSDB_MASTER_KEY
+            value: v8SvZGsTzNGV0vA6Yc2qeBiR6jquigMttdUugIsjZeRgZ0Cwzl9ILpYghmey4ZIFidQiqxy62TRSACDbx65xrg==
